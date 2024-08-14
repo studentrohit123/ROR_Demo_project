@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Bus_name: MyString
+  Bus_number: MyString
+  Capacity: MyString
+  Bus_type: MyString
+
+two:
+  Bus_name: MyString
+  Bus_number: MyString
+  Capacity: MyString
+  Bus_type: MyString
