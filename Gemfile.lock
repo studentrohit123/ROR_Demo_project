@@ -109,7 +109,6 @@ GEM
       warden (~> 1.2.3)
     drb (2.2.1)
     erubi (1.13.0)
-    flatpickr (4.6.13.1)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -283,7 +282,6 @@ DEPENDENCIES
   capybara
   debug
   devise
-  flatpickr
   importmap-rails
   jbuilder
   puma (>= 5.0)

@@ -12,8 +12,9 @@ class BusesController < ApplicationController
 
   def create
     @bus = Bus.new(bus_params)
+
     if @bus.save
-      redirect_to buses_path, notice: 'Bus information was successfully create'
+      redirect_to buses_path(@bus), notice: 'Bus information was successfully create'
     else
       render :new
     end
@@ -29,8 +30,9 @@ class BusesController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
+    @bus = Bus.find(params[:id])
     @bus.destroy
     redirect_to buses_path(@bus), notice: 'Bus was successfully deleted.'
   end
@@ -42,7 +44,7 @@ class BusesController < ApplicationController
   end
 
   def bus_params
-    params.require(:bus).permit(:name, :number, :capacity, :bus_class)
+    params.require(:bus).permit(:name, :number, :total_seats, :bus_class,:route_id,:departure_time,:arrival_time,:price)
   end
 end
 

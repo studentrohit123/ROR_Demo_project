@@ -1,0 +1,62 @@
+
+<h1>New Booking</h1>
+
+<%= form_with(model: @booking, local: true) do |form| %>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :name, class: 'mb-2' %>
+      <%= form.text_field :name,class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :age, class: 'mb-2' %>
+      <%= form.text_field :age,class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :gender, class: 'mb-2' %>
+      <%= form.text_field :gender,class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :seat_type, class: 'mb-2' %>
+      <%= form.text_field :seat_type,class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :bus_id, class: 'mb-2' %>
+      <%= form.collection_select :bus_id, Bus.all, :id, :number, prompt: "Select Bus",class: 'form-control form-control-lg rounded-0'%>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :seat_no, class: 'mb-2' %>
+      <%= form.text_field :seat_no,class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+    <%= form.label :date, class: 'mb-2' %>
+    <%= form.date_select :date,class: 'form-control form-control-lg rounded-0'%>
+    </div>
+  </div>
+
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>
+
+<%= link_to 'Back',  root_path %>
+
+
+

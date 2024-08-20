@@ -16,14 +16,42 @@
 <div class="row">
   <div class="col-lg-4">
     <div class="form-group">
-      <%= form.label :capacity, class: 'mb-2' %>
-      <%= form.text_field :capacity, class: 'form-control form-control-lg rounded-0' %>
+      <%= form.label :total_seats, class: 'mb-2' %>
+      <%= form.text_field :total_seats, class: 'form-control form-control-lg rounded-0' %>
     </div>
   </div>
   <div class="col-lg-4">
     <div class="form-group">
       <%= form.label :bus_class, class: 'mb-2' %>
       <%= form.text_field :bus_class, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :departure_time, class: 'mb-2' %>
+      <%= form.text_field :departure_time, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :arrival_time, class: 'mb-2' %>
+      <%= form.text_field :arrival_time, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :route_id, class: 'mb-2' %>
+      <%= form.text_field :route_id, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :price, class: 'mb-2' %>
+      <%= form.text_field :price, class: 'form-control form-control-lg rounded-0' %>
     </div>
   </div>
 </div>

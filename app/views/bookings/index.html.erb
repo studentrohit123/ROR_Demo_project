@@ -1,0 +1,20 @@
+<h1>Your Bookings</h1>
+
+<% if @bookings.any? %>
+  <ul>
+    <% @bookings.each do |booking| %>
+      <li>
+        <%= "Booking ID: #{booking.id},Name: #{booking.name}, Seat_no: #{booking.seat_no}, Date: #{booking.date}" %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You have no bookings.</p>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to 'Book Ticket', new_booking_path %>
+<% else %>
+  <%= link_to 'Log in to book a ticket', new_user_session_path %>
+<% end %>
+

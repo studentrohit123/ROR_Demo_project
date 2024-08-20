@@ -12,8 +12,11 @@
     <th>Number</th>
     <th>Capacity</th>
     <th>bus_class</th>
-    <th>Actions</th>
     <th>route_id</th>
+    <th>departure_time</th>
+    <th>arrival_time</th>
+    <th>price</th>
+    <th>Action</th>
   </tr>
 </thead>
   <tbody>
@@ -21,17 +24,19 @@
     <tr>
       <td><%= bus.name%></td>
       <td><%= bus.number%></td>
-      <td><%= bus.capacity%></td>
+      <td><%= bus.total_seats%></td>
       <td><%= bus.bus_class%><td>
-      
+      <%= bus.route_id%>
+      <td><%= bus.departure_time.strftime("%I:%M %p") %><td>
+      <%= bus.arrival_time.time.strftime("%I:%M %p") %>
+      <td><%= bus.price%><td>
       <%= link_to "Edit", edit_bus_path(bus), class: "btn btn-primary" %>
       <%= link_to "Delete", bus_path(bus), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %>
-      </td>
-      </tr>
-      <% end %>
-      </tbody>
+                  } %>      
+    </tr>
+    <% end %>
+  </tbody>
 </table>
 
