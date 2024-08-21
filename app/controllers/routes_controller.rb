@@ -34,7 +34,7 @@ class RoutesController < ApplicationController
         render :edit
     end
   end
-
+  
   def destroy 
     @route = Route.find(params[:id])
     @route.destroy
