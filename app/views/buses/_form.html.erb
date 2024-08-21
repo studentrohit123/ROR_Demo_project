@@ -1,0 +1,64 @@
+<%= form_with model: @bus do |form| %>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :name, class: 'mb-2' %>
+      <%= form.text_field :name, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :number, class: 'mb-2' %>
+      <%= form.text_field :number, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :total_seats, class: 'mb-2' %>
+      <%= form.text_field :total_seats, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :bus_class, class: 'mb-2' %>
+      <%= form.text_field :bus_class, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :departure_time, class: 'mb-2' %>
+      <%= form.text_field :departure_time, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :arrival_time, class: 'mb-2' %>
+      <%= form.text_field :arrival_time, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :route_id, class: 'mb-2' %>
+      <%= form.text_field :route_id, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <%= form.label :price, class: 'mb-2' %>
+      <%= form.text_field :price, class: 'form-control form-control-lg rounded-0' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12 mt-4">
+    <%= form.submit class: 'btn btn-primary btn-lg rounded-0' %>
+    <%= link_to "Bus list", buses_path, class: "btn btn-outline-primary btn-lg rounded-0"%>
+  </div>
+</div>
+<% end %>
