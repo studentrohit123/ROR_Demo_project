@@ -1,15 +1,17 @@
 <h1>Your Bookings</h1>
 
+<% if @bookings.any? %>
+
 <table class="table table-bordered">
- <thead>
-  <tr>
-    <th>Booking_id</th>
-    <th>Name</th>
-    <th>Seat_no</th>
-    <th>Date</th>
-    <th>Action</th>
-  </tr>
-</thead>
+  <thead>
+    <tr>
+      <th>Booking_id</th>
+      <th>Name</th>
+      <th>Seat_no</th>
+      <th>Date</th>
+      <th>Action
+    </tr>
+  </thead>
   <tbody>
     <% @bookings.each do |booking| %>
     <tr>
@@ -20,8 +22,25 @@
       <%= link_to "Delete", booking_path(booking), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
-                  } %>      
+                  } %>        
     </tr>
     <% end %>
   </tbody>
 </table>
+<% else %>
+  <p> you have no bookings.</p>
+<% end%>
+ 
+
+<% if user_signed_in? %>
+  <%= link_to 'Book Ticket', new_booking_path %>
+<% else %>
+  <%= link_to 'Log in to book a ticket', new_user_session_path %>
+<% end %>
+
+
+
+
+
+
+
