@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_20_104941) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_21_095319) do
   create_table "bookings", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "bus_id", null: false
@@ -48,23 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_104941) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "tickets", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "bus_id", null: false
-    t.integer "route_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "seat_no"
-    t.string "name"
-    t.integer "age"
-    t.string "gender"
-    t.integer "booking_id", null: false
-    t.index ["booking_id"], name: "index_tickets_on_booking_id"
-    t.index ["bus_id"], name: "index_tickets_on_bus_id"
-    t.index ["route_id"], name: "index_tickets_on_route_id"
-    t.index ["user_id"], name: "index_tickets_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,10 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_104941) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.integer "age"
-    t.integer "contact"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -84,5 +63,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_104941) do
   add_foreign_key "bookings", "buses"
   add_foreign_key "bookings", "users"
   add_foreign_key "buses", "routes"
-  add_foreign_key "tickets", "bookings"
 end
