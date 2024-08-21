@@ -1,11 +1,15 @@
 class BookingsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  
+
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
+    if current_user
     @bookings = current_user.bookings
+    else
+      redirect_to new_user_session_path 
+    end
   end
 
   def show
