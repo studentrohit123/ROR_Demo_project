@@ -30,8 +30,9 @@ class BusesController < ApplicationController
       render :edit
     end
   end
-
+  
   def destroy
+  
     @bus = Bus.find(params[:id])
     @bus.destroy
     redirect_to buses_path(@bus), notice: 'Bus was successfully deleted.'
