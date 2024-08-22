@@ -47,6 +47,6 @@ class RoutesController < ApplicationController
 
   private 
   def route_params 
-  params.require(:route).permit(:source, :destination, :distance)
+  params.require(:route).permit(:source, :destination, :distance).transform_values(&:strip)
   end
 end
