@@ -1,0 +1,26 @@
+<!-- app/views/routes/show.html.erb -->
+<h1>Route: <%= @route.source %></h1>
+<h1>Description: <%= @route.destination %></h1>
+
+<h2>Trains</h2>
+<% if @trains.any? %>
+  <ul>
+    <% @trains.each do |train| %>
+      <li>
+        <strong>Train_Name:</strong> <%= train.name %><br>
+        <strong>Train_Number:</strong> <%= train.number %><br>
+        <strong>Train_class:</strong> <%= train.train_class %><br>
+        <strong>Total_seats:</strong> <%= train.total_seats %><br>
+        <strong>Departure time:</strong> <%= train.departure_time.strftime("%I:%M %p") %><br>
+        <strong>Arrival_time:</strong> <%= train.arrival_time.strftime("%I:%M %p") %><br>
+        <strong>Price:</strong> <%= train.price %><br>
+        <%= link_to 'Booking', new_booking_path, class: "btn btn-primary"%>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No Train available for this route.</p>
+<% end %>
+
+
+<%= link_to 'Back to Routes', trains_path, class: "btn btn-primary"%>

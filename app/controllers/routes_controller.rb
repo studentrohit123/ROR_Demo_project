@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
 
-  before_action :get_route, only: [:edit, :update,:show]
+  before_action :get_route, only: [:show, :edit, :update, :destroy]
 
   def index
     @routes = Route.all
@@ -36,7 +36,6 @@ class RoutesController < ApplicationController
   end
   
   def destroy 
-    @route = Route.find(params[:id])
     @route.destroy
     redirect_to routes_path(@route), notice: 'Route was successfully deleted.'
   end

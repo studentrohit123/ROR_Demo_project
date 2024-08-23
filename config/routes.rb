@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :homepages
   resources :buses
   resources :routes
-  resources :bookings 
+  resources :bookings
+  resources :trains
 end
 
