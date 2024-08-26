@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Booking_id</th>
+      <th>Your booking</th>
       <th>Name</th>
       <th>Seat_no</th>
       <th>Date</th>
@@ -16,6 +17,7 @@
     <% @bookings.each do |booking| %>
     <tr>
       <td><%= booking.id%></td>
+      <td><%= booking.bookable_type%></td>
       <td><%= booking.name%></td>
       <td><%= booking.seat_no%></td>
       <td><%= booking.date%><td>

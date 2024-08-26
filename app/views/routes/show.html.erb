@@ -7,6 +7,7 @@
   <ul>
     <% @buses.each do |bus| %>
       <li>
+        <strong>Bus_id:</strong> <%= bus.id %><br>
         <strong>Bus_Name:</strong> <%= bus.name %><br>
         <strong>Bus_Number:</strong> <%= bus.number %><br>
         <strong>Bus_class:</strong> <%= bus.bus_class %><br>
@@ -14,7 +15,7 @@
         <strong>Departure time:</strong> <%= bus.departure_time.strftime("%I:%M %p") %><br>
         <strong>Arrival_time:</strong> <%= bus.arrival_time.strftime("%I:%M %p") %><br>
         <strong>Price:</strong> <%= bus.price %><br>
-        <%= link_to 'Booking', new_booking_path, class: "btn btn-primary"%>
+        <%= link_to 'Booking', new_booking_path(bookable_id: bus.id, bookable_type: "Bus"), class: "btn btn-primary"%>
       </li>
     <% end %>
   </ul>

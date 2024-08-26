@@ -18,14 +18,16 @@
 <div class="row">
   <div class="col-lg-4">
     <div class="form-group">
-      <%= form.label :gender, class: 'mb-2' %>
-      <%= form.text_field :gender,class: 'form-control form-control-lg rounded-0' %>
+      <%# <%= form.label :gender, class: 'mb-2' %>
+      <%# <%= form.text_field :gender,class: 'form-control form-control-lg rounded-0' %> 
+      <%= form.label :gender %>
+      <%= form.select :gender, Booking.genders.keys.map { |g| [g.humanize, g] }, { prompt: 'Select Gender' } %>
     </div>
   </div>
   <div class="col-lg-4">
     <div class="form-group">
-      <%= form.label :seat_type, class: 'mb-2' %>
-      <%= form.text_field :seat_type,class: 'form-control form-control-lg rounded-0' %>
+      <%= form.label :seat_type %>
+      <%= form.select :seat_type, Booking.seat_types.keys.map { |w| [w.humanize, w] }, { prompt: 'Select Seat Type' } %>
     </div>
   </div>
 </div>
@@ -43,17 +45,12 @@
       <%= form.date_select :date,class: 'form-control form-control-lg rounded-0'%>
     </div>
   </div>
-  <div class="col-lg-4">
-    <div class="form-group">
-      <%= form.label :bus_id, class: 'mb-2' %>
-      <%= form.collection_select :bus_id, Bus.all, :id, :number, prompt: "Select Bus_no",class: 'form-control form-control-lg rounded-0'%>
-    </div>
-  </div>
 </div>
-
+<%= form.hidden_field :bookable_id, value: params[:bookable_id] %>
+<%= form.hidden_field :bookable_type, value: params[:bookable_type] %>
 
 <div class="actions">
-  <%= form.submit class: "btn btn-primary btn-lg mb-4 rounded-0" %>
+  <%= form.submit "Ticket Booking", class: "btn btn-primary btn-lg mb-4 rounded-0" %>
 </div>
 <% end %>
 
