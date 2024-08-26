@@ -1,43 +1,51 @@
 <div class="col-lg-12">
-<div class="card rounded-0 mt-5 mb-5">
-  <div class="card-body">
-    <h2 class="text-center"></h2>
+  <div class="card rounded-0 mt-5 mb-5">
+    <div class="card-body">
+      <h2 class="text-center"></h2>
+    </div>
   </div>
-</div>
-<%= link_to "Create New Bus",  new_bus_path, class: "btn btn-primary btn-lg mb-4 rounded-0" %>
-<%= link_to "Home", root_path, class: "btn btn-primary btn-lg mb-4 rounded-0"%>
-<table class="table table-bordered">
- <thead>
-  <tr>
-    <th>Name</th>
-    <th>Number</th>
-    <th>Capacity</th>
-    <th>bus_class</th>
-    <th>route_id</th>
-    <th>departure_time</th>
-    <th>arrival_time</th>
-    <th>price</th>
-    <th>Action</th>
-  </tr>
-</thead>
-  <tbody>
-    <% @bus.each do |bus| %>
-    <tr>
-      <td><%= bus.name%></td>
-      <td><%= bus.number%></td>
-      <td><%= bus.total_seats%></td>
-      <td><%= bus.bus_class%><td>
-      <%= bus.route_id%>
-      <td><%= bus.departure_time.strftime("%I:%M %p") %><td>
-      <%= bus.arrival_time.time.strftime("%I:%M %p") %>
-      <td><%= bus.price%><td>
-      <%= link_to "Edit", edit_bus_path(bus), class: "btn btn-primary" %>
-      <%= link_to "Delete", bus_path(bus), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>      
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= link_to "Create New Bus", new_bus_path, class: "btn btn-primary btn-lg mb-4 rounded-0" %>
+  <%= link_to "Home", root_path, class: "btn btn-primary btn-lg mb-4 rounded-0" %>
 
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number</th>
+        <th>Capacity</th>
+        <th>Bus Class</th>
+        <th>Route ID</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Price</th>
+        <th>Image</th> 
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bus.each do |bus| %>
+        <tr>
+          <td><%= bus.name %></td>
+          <td><%= bus.number %></td>
+          <td><%= bus.total_seats %></td>
+          <td><%= bus.bus_class %></td>
+          <td><%= bus.route_id %></td>
+          <td><%= bus.departure_time.strftime("%I:%M %p") %></td>
+          <td><%= bus.arrival_time.strftime("%I:%M %p") %></td>
+          <td><%= bus.price %></td>
+          <td>
+            <% if bus.image.attached? %> 
+              <%= image_tag bus.image, size: "100x100", class: "img-thumbnail" %>
+            <% else %>
+              No image available
+            <% end %>
+          </td>
+          <td>
+            <%= link_to "Edit", edit_bus_path(bus), class: "btn btn-primary" %>
+            <%= link_to "Delete", bus_path(bus), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
