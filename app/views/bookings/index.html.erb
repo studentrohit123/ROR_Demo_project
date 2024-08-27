@@ -6,9 +6,9 @@
   <thead>
     <tr>
       <th>Booking_id</th>
-      <th>Your booking</th>
       <th>Name</th>
-      <th>Seat_no</th>
+      <th>Your Booking</th>
+      <th>Seat Number</th>
       <th>Date</th>
       <th>Action
     </tr>
@@ -17,8 +17,8 @@
     <% @bookings.each do |booking| %>
     <tr>
       <td><%= booking.id%></td>
-      <td><%= booking.bookable_type%></td>
       <td><%= booking.name%></td>
+      <td><%= booking.bookable_type%></td>
       <td><%= booking.seat_no%></td>
       <td><%= booking.date%><td>
       <%= link_to "Delete", booking_path(booking), data: {
