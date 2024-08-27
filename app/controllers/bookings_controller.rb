@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
   def index
     if current_user
-    @bookings = current_user.bookings
+      @bookings = current_user.bookings
     else
       redirect_to new_user_session_path 
     end
@@ -21,8 +21,9 @@ class BookingsController < ApplicationController
   
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = current_user 
+    @booking.user = current_user
     if @booking.save
+      BookingMailer.booking_confirmation(@booking).deliver_now
       redirect_to booking_path(@booking)
     else
       render :new
@@ -55,3 +56,6 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:bookable_id, :bookable_type, :date, :seat_type, :seat_no, :name, :age, :gender)
   end
 end
+
+
+

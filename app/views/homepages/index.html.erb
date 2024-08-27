@@ -1,4 +1,7 @@
+<div style="text-align:center">
+
 <h1>Welcome to Our Online Ticket Booking System</h1>
+<br>
 <%= form_with url: root_path, method: :get, local: true do |form| %>
   <%= form.label :source %>
   <%= form.text_field :source %>
@@ -6,9 +9,10 @@
   <%= form.text_field :destination %>
   <%= form.submit 'Search' %>
 <% end %>
-
+<br>
 <h1>Top Routes</h1>
 
+<div class="table-container">
 <table>
   <thead>
     <tr>
@@ -36,4 +40,6 @@
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
