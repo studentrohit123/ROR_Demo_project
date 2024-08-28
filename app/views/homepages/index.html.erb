@@ -1,45 +1,43 @@
-<div style="text-align:center">
+<div style="background-image: url(<%= asset_path('bus_image5.jpg') %>); background-size: cover; background-position: center; height: 100vh; text-align: center;">
+  <h1>Welcome to Our Online Ticket Booking System</h1>
+  <br>
+  <%= form_with url: root_path, method: :get, local: true do |form| %>
+    <%= form.label :source %>
+    <%= form.text_field :source %>
+    <%= form.label :destination %>
+    <%= form.text_field :destination %>
+    <%= form.submit 'Search' %>
+  <% end %>
+  <br>
+  <h1>Top Routes</h1>
 
-<h1>Welcome to Our Online Ticket Booking System</h1>
-<br>
-<%= form_with url: root_path, method: :get, local: true do |form| %>
-  <%= form.label :source %>
-  <%= form.text_field :source %>
-  <%= form.label :destination %>
-  <%= form.text_field :destination %>
-  <%= form.submit 'Search' %>
-<% end %>
-<br>
-<h1>Top Routes</h1>
-
-<div class="table-container">
-<table>
-  <thead>
-    <tr>
-      <th>Source</th>
-      <th>Destination</th>
-      <th>Distance</th>
-    </tr>
-  </thead>
-   <tbody>
-    <% if @routes.present? %>
-      <% @routes.each do |route| %>
+  <div class="table-container">
+    <table>
+      <thead>
         <tr>
-          <td><%= route.source %></td>
-          <td><%= route.destination %></td>
-          <td><%= route.distance %></td>
-          <td>
-          <%= link_to "Bus Details", route_path(route), class: "btn btn-primary" %>
-          <td>
+          <th>Source</th>
+          <th>Destination</th>
+          <th>Distance</th>
         </tr>
-      <% end %>
-    <% else %>
-      <tr>
-        <td colspan="6">No routes found</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+        <% if @routes.present? %>
+          <% @routes.each do |route| %>
+            <tr>
+              <td><%= route.source %></td>
+              <td><%= route.destination %></td>
+              <td><%= route.distance %></td>
+              <td>
+                <%= link_to "Bus Details", route_path(route), class: "btn btn-primary" %>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="4">No routes found</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-</div>
-
