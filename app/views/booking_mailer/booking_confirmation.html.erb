@@ -1,0 +1,16 @@
+<h1>Booking Confirmation</h1>
+
+<p>Dear <%= @user.id %>,</p>
+
+
+<ul>
+  <li>Booking ID: <%= @booking.id %></li>
+  <li>Date: <%= @booking.date.strftime('%d %B %Y') %></li>
+  <li>Seat Type: <%= @booking.seat_type %></li>
+  <li>Seat Number: <%= @booking.seat_no %></li>
+  <li>Name: <%= @booking.name %></li>
+  <li>Age: <%= @booking.age %></li>
+  <li>Gender: <%= @booking.gender %></li>
+</ul>
+
+

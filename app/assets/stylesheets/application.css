@@ -14,3 +14,24 @@
  *= require_self
  *= require_tree .
  */
+
+
+ /* Center the table container */
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Optional: adds space above the table */
+  }
+  
+  /* Optional: Style the table for better presentation */
+  table {
+    width: auto; /* Prevent the table from stretching too wide */
+    border-collapse: collapse; /* Remove gaps between table cells */
+  }
+  
+  th, td {
+    padding: 8px 12px; /* Add padding to table cells */
+    text-align: center; /* Center align text in table cells */
+    border: 1px solid #ddd; /* Add a light border to table cells */
+  }
+  

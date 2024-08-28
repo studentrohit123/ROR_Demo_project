@@ -1,19 +1,18 @@
-<!-- app/views/routes/show.html.erb -->
-<h1>Route: <%= @route.source %></h1>
-<h1>Description: <%= @route.destination %></h1>
+<h1>Source: <%= @route.source %></h1>
+<h1>Destination: <%= @route.destination %></h1>
 
 <h2>Trains</h2>
 <% if @trains.any? %>
   <ul>
     <% @trains.each do |train| %>
       <li>
-        <strong>Train_Name:</strong> <%= train.id %><br>
-        <strong>Train_Name:</strong> <%= train.name %><br>
-        <strong>Train_Number:</strong> <%= train.number %><br>
-        <strong>Train_class:</strong> <%= train.train_class %><br>
-        <strong>Total_seats:</strong> <%= train.total_seats %><br>
+        <%# <strong>Train ID:</strong> <%= train.id %>
+        <strong>Train Name:</strong> <%= train.name %><br>
+        <strong>Train Number:</strong> <%= train.number %><br>
+        <strong>Train class:</strong> <%= train.train_class %><br>
+        <strong>Total seats:</strong> <%= train.total_seats %><br>
         <strong>Departure time:</strong> <%= train.departure_time.strftime("%I:%M %p") %><br>
-        <strong>Arrival_time:</strong> <%= train.arrival_time.strftime("%I:%M %p") %><br>
+        <strong>Arrival time:</strong> <%= train.arrival_time.strftime("%I:%M %p") %><br>
         <strong>Price:</strong> <%= train.price %><br>
         <%= link_to 'Booking', new_booking_path(bookable_id: train.id, bookable_type: "Train"), class: "btn btn-primary"%>
       </li>
