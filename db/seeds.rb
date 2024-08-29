@@ -8,4 +8,4 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-UserMailer.sendMail("rohitsen91315@gmail.com").deliver
+UserMailer.sendMail("rsen@bestpeers.com").deliver
