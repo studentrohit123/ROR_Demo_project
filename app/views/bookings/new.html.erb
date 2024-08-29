@@ -1,20 +1,20 @@
-<h1>New Booking</h1>
-<%= form_with(model: @booking, local: true) do |form| %>
-  <div class="row">
+<h1 class="text-center">New Booking</h1>
+<%= form_with(model: @booking, local: true, html: { class: "form-container" }) do |form| %>
+  <div class="row justify-content-center">
     <div class="col-lg-4">
       <div class="form-group form-group-custom">
-        <%= form.label :name, class: 'mb-2' %>
+        <%= form.label :name, class: 'mb-3' %>
         <%= form.text_field :name, class: 'form-control form-control-custom' %>
       </div>
     </div>
     <div class="col-lg-4">
       <div class="form-group form-group-custom">
-        <%= form.label :age, class: 'mb-2' %>
+        <%= form.label :age, class: 'mb-3' %>
         <%= form.text_field :age, class: 'form-control form-control-custom' %>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-lg-4">
       <div class="form-group form-group-custom">
         <%= form.label :gender %>
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-lg-4">
       <div class="form-group form-group-custom">
         <%= form.label :seat_no, class: 'mb-2' %>
@@ -38,15 +38,13 @@
     <div class="col-lg-4">
       <div class="form-group form-group-custom">
         <%= form.label :date, class: 'mb-2' %>
-        <%= form.date_select :date, class: 'form-control form-control-custom form-date-select' %>
+        <%= form.date_select :date, {}, { class: 'form-control form-control-custom' } %>
       </div>
     </div>
   </div>
   <%= form.hidden_field :bookable_id, value: params[:bookable_id] %>
   <%= form.hidden_field :bookable_type, value: params[:bookable_type] %>
-  <div class="actions">
-  <%= form.submit "Ticket Booking", class: "btn btn-primary btn-lg mb-4 rounded-0" %>
+  <div class="actions text-center">
+    <%= form.submit "Ticket Booking", class: "btn btn-primary btn-lg mb-2 btn-custom" %>
   </div>
 <% end %>
-
-
