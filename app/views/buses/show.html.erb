@@ -1,0 +1,31 @@
+<h1>Source: <%= @route.source %></h1>
+<h1>Destination: <%= @route.destination %></h1>
+
+<h2>Buses</h2>
+<% if @bus.any? %>
+  <ul>
+    <% @bus.each do |bus| %>
+      <li>
+        <%# <strong>Bus id:</strong> <%= bus.id %>
+        <strong>Bus Name:</strong> <%= bus.name %><br>
+        <strong>Bus Number:</strong> <%= bus.number %><br>
+        <strong>Bus class:</strong> <%= bus.bus_class %><br>
+        <strong>Total seats:</strong> <%= bus.total_seats %><br>
+        <strong>Departure time:</strong> <%= bus.departure_time.strftime("%I:%M %p") %><br>
+        <strong>Arrival time:</strong> <%= bus.arrival_time.strftime("%I:%M %p") %><br>
+        <strong>Price:</strong> <%= bus.price %><br>
+        <strong>
+        <% if bus.image.attached? %> 
+              <%= image_tag bus.image, size: "300x300", class: "img-thumbnail" %>
+            <% end %>
+        </strong><br>
+        <%= link_to 'Booking', new_booking_path(bookable_id: bus.id, bookable_type: "Bus"), class: "btn btn-primary"%>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No buses available for this route.</p>
+<% end %>
+
+
+<%= link_to 'Back to Routes', root_path, class: "btn btn-primary"%>

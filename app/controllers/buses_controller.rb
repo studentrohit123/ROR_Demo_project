@@ -5,6 +5,11 @@ class BusesController < ApplicationController
   def index 
     @bus = Bus.all 
   end
+ 
+  def show
+    @route = Route.find(params[:id])
+    @bus = @route.buses
+  end
 
   def new 
     @bus = Bus.new
