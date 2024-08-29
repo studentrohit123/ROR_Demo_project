@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :edit, :update]
 
   def index
     if current_user
@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
   end
-  
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
@@ -42,16 +42,16 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path, notice: 'Booking was successfully destroyed.'
   end
-
-  private
 
   def set_booking
     @booking = Booking.find(params[:id])
   end
 
+  private
   def booking_params
     params.require(:booking).permit(:bookable_id, :bookable_type, :date, :seat_type, :seat_no, :name, :age, :gender)
   end
