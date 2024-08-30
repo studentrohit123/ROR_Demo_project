@@ -44,8 +44,8 @@
 <div class="row">
   <div class="col-lg-4">
     <div class="form-group">
-      <%= form.label :route_id, class: 'mb-2' %>
-      <%= form.text_field :route_id, class: 'form-control form-control-lg rounded-0' %>
+      <%= form.label :route_id, "Select Route" %>
+      <%= form.collection_select :route_id, @route, :id, :source_to_destination, prompt: "Choose a route" %>
     </div>
   </div>
   <div class="col-lg-4">
@@ -57,7 +57,7 @@
 </div>
 <div class="form-group">
   <%= form.label :image %>
-  <%= form.file_field :image, class: "form-control" %>
+  <%= form.file_field :image, class: "form-control form-control-lg rounded-0'" %>
 </div>
 <div class="row">
   <div class="col-lg-12 mt-4">
