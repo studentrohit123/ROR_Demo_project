@@ -18,7 +18,7 @@ gem "puma", ">= 5.0"
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-#gem "turbo-rails"
+#gem "turbo-rails", "~> 1.0"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
@@ -71,5 +71,3 @@ end
 gem 'ransack'
 
 gem "image_processing", ">= 1.2"
-
-gem "letter_opener"

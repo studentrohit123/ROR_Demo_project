@@ -21,10 +21,7 @@
       <td><%= booking.bookable_type%></td>
       <td><%= booking.seat_no%></td>
       <td><%= booking.date%><td>
-      <%= link_to "Delete", booking_path(booking), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>        
+      <%= button_to "Delete", booking, method: :delete, class:"btn btn-danger" %>
     </tr>
     <% end %>
   </tbody>
@@ -34,9 +31,7 @@
 <% end%>
  
 
-<% if user_signed_in? %>
-  <%= link_to 'Book Ticket', new_booking_path %>
-<% else %>
+<% unless user_signed_in? %>
   <%= link_to 'Log in to book a ticket', new_user_session_path %>
 <% end %>
 
