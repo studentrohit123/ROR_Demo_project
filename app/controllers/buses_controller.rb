@@ -13,19 +13,21 @@ class BusesController < ApplicationController
 
   def new 
     @bus = Bus.new
+    @route = Route.all
   end
 
   def create
     @bus = Bus.new(bus_params)
-
     if @bus.save
       redirect_to buses_path(@bus), notice: 'Bus information was successfully create'
     else
+      @route = Route.all
       render :new
     end
   end
   
   def edit
+    @route = Route.all
   end
 
   def update

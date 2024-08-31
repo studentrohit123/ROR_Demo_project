@@ -21,7 +21,7 @@
       <td><%= booking.bookable_type%></td>
       <td><%= booking.seat_no%></td>
       <td><%= booking.date%><td>
-      <%= button_to "Delete", booking, method: :delete, class:"btn btn-danger" %>
+      <%= button_to "Delete", booking, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
     </tr>
     <% end %>
   </tbody>
