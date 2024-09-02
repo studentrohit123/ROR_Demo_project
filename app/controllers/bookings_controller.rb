@@ -4,6 +4,8 @@ class BookingsController < ApplicationController
 
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_bus, only: [:new, :create]
+
   def index
     if current_user
       @bookings = current_user.bookings
@@ -20,6 +22,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    byebug
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
@@ -48,6 +51,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_bus
+    @train = Train.find_by(id: params[:bookable_id]) if params[:bookable_type] == "Train"
   end
 
   private
