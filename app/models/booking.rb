@@ -12,10 +12,8 @@ class Booking < ApplicationRecord
   private
 
   def seat_must_be_available
-    byebug
-    if bookable_type == "Train" && bookable.bookings.where(seat_no: seat_no).exists?
+    if bookable.bookings.where(seat_no: seat_no).exists?
       errors.add(:seat_no, "is already booked")
     end
   end
 end
-

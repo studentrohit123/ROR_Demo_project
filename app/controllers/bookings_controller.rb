@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
 
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-  before_action :set_bus, only: [:new, :create]
+  before_action :set_bookable, only: [:new, :create]
 
   def index
     if current_user
@@ -22,7 +22,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    byebug
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     if @booking.save
@@ -48,20 +47,21 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path, notice: 'Booking was successfully destroyed.'
   end
-
+  
+  private
   def set_booking
     @booking = Booking.find(params[:id])
   end
 
-  def set_bus
-    @train = Train.find_by(id: params[:bookable_id]) if params[:bookable_type] == "Train"
+  def set_bookable
+    @bookable = if params[:bookable_type] == 'Bus'
+                  Bus.find(params[:bookable_id])
+                elsif params[:bookable_type] == 'Train'
+                  Train.find(params[:bookable_id])
+                end
   end
-
-  private
+  
   def booking_params
     params.require(:booking).permit(:bookable_id, :bookable_type, :date, :seat_type, :seat_no, :name, :age, :gender)
   end
 end
-
-
-
