@@ -32,7 +32,7 @@
     <div class="col-lg-4">
       <div class="form-group form-group-custom">
         <%= form.label :seat_no, class: 'mb-2' %>
-        <%= form.text_field :seat_no, class: 'form-control form-control-custom' %>
+        <%= form.select :seat_no, options_for_select((1..@bookable.total_seats).to_a - @bookable.bookings.pluck(:seat_no)), { prompt: 'Select Seat' }, class: 'form-control form-control-custom' %>
       </div>
     </div>
     <div class="col-lg-4">
@@ -48,3 +48,4 @@
     <%= form.submit "Ticket Booking", class: "btn btn-primary btn-lg mb-2 btn-custom" %>
   </div>
 <% end %>
+
