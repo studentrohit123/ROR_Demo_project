@@ -11,6 +11,13 @@
   <li>Name: <%= @booking.name %></li>
   <li>Age: <%= @booking.age %></li>
   <li>Gender: <%= @booking.gender %></li>
+  <% if @booking.bookable_type == "Bus" %>
+    <li> Bus Number: <%= Bus.find(@booking.bookable_id).number %></li>
+    <li> Bus Name: <%= Bus.find(@booking.bookable_id).name %></li>
+  <% elsif @booking.bookable_type == "Train" %>
+    <li> Train Number: <%= Train.find(@booking.bookable_id).number %></li>
+    <li> Train Name: <%= Train.find(@booking.bookable_id).name %></li>
+  <% end %>
 </ul>
 
 

@@ -71,3 +71,5 @@ end
 gem 'ransack'
 
 gem "image_processing", ">= 1.2"
+
+gem 'rubocop', require: false
