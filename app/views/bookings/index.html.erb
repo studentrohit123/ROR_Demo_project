@@ -5,9 +5,10 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Booking id</th>
       <th>Name</th>
       <th>Your Booking</th>
+      <th>Name</th>
+      <th>Number</th>
       <th>Seat Number</th>
       <th>Date</th>
       <th>Action
@@ -16,12 +17,18 @@
   <tbody>
     <% @bookings.each do |booking| %>
     <tr>
-      <td><%= booking.id%></td>
       <td><%= booking.name%></td>
       <td><%= booking.bookable_type%></td>
+      <% if booking.bookable_type == "Bus" %>
+        <td><%= Bus.find(booking.bookable_id).name %></td>
+        <td><%= Bus.find(booking.bookable_id).number %></td>
+      <% elsif booking.bookable_type == "Train" %>
+        <td><%= Train.find(booking.bookable_id).name %></td>
+        <td><%= Train.find(booking.bookable_id).number %></td>
+      <% end %>
       <td><%= booking.seat_no%></td>
       <td><%= booking.date%><td>
-      <%= button_to "Delete", booking, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
+      <%= button_to "Cancel", booking, method: :delete, confirm: "Are you sure?", class:"btn btn-danger" %>
     </tr>
     <% end %>
   </tbody>
