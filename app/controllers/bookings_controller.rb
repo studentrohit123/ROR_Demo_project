@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @available_seats = (1..@bookable.total_seats).to_a - @bookable.bookings.pluck(:seat_no)
     @booking = Booking.new
   end
 

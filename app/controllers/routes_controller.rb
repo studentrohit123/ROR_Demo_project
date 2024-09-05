@@ -12,7 +12,6 @@ class RoutesController < ApplicationController
 
   def create 
     @route = Route.new(route_params)
-
     if @route.save
       redirect_to routes_path(@route), notice: 'Route was successfully create'
     else
