@@ -45,7 +45,7 @@
   <div class="col-lg-4">
     <div class="form-group">
       <%= form.label :route_id, "Select Route" %>
-      <%= form.collection_select :route_id, @route, :id, :source_to_destination, prompt: "Choose a route" %>
+      <%= form.collection_select :route_id, @routes, :id, :source_to_destination, prompt: "Choose a route" %>
     </div>
   </div>
   <div class="col-lg-4">

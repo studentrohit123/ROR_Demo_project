@@ -13,7 +13,7 @@ class BusesController < ApplicationController
 
   def new 
     @bus = Bus.new
-    @route = Route.all
+    @routes = Route.all
   end
 
   def create
@@ -21,18 +21,18 @@ class BusesController < ApplicationController
     if @bus.save
       redirect_to buses_path(@bus), notice: 'Bus information was successfully create'
     else
-      @route = Route.all
+      @routes = Route.all
       render :new
     end
   end
   
   def edit
-    @route = Route.all
+    @routes = Route.all
   end
 
   def update
     if @bus.update(bus_params)
-      redirect_to   buses_path(@bus), notice: 'Bus information was successfully update.'
+      redirect_to buses_path(@bus), notice: 'Bus information was successfully update.'
     else
       render :edit
     end
