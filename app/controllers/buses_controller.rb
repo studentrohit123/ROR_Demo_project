@@ -52,4 +52,3 @@ class BusesController < ApplicationController
     params.require(:bus).permit(:name, :number, :total_seats, :bus_class,:route_id,:departure_time,:arrival_time,:price,:image)
   end
 end
-
