@@ -75,3 +75,5 @@ gem 'ransack'
 gem "image_processing", ">= 1.2"
 
 gem 'rubocop', require: false
+
+gem "simplecov", '0.17.0'
