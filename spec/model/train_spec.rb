@@ -1,4 +1,4 @@
-require "rails-helper"
+require 'rails_helper'
 
 RSpec.describe Train, type: :model do
   describe "Write test cases for Train" do
