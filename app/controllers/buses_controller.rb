@@ -3,7 +3,7 @@ class BusesController < ApplicationController
   before_action :get_bus, only: [:edit, :update, :destroy]
 
   def index 
-    @bus = Bus.all 
+    @buses = Bus.all 
   end
  
   def show
