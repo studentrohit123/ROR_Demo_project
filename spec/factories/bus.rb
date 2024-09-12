@@ -1,4 +1,3 @@
-
 FactoryBot.define do
   factory :bus do
     name { 'Purohit' }
