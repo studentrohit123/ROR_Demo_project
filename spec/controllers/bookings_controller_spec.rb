@@ -72,10 +72,30 @@ RSpec.describe BookingsController, type: :controller do
   #   expect(response).to render_template(:new)
   # end
 
-  describe "Post #create" do 
+  describe "Booking #create" do 
     it "create new booking" do 
       post :create, params: { booking: { name: 'sunit', age: '21', gender: 'Male', seat_no: '2', date: 'Date.today', bookable_type: "Bus", bookable_id: bus.id, user_id: user.id }}
       expect(response).to have_http_status(:success)
+    end
+  end
+
+  it "create a new booking for current user @bookings" do
+    post :create, params: { booking: { name: 'sunit', age: '21', gender: 'Male', seat_no: '2', date: 'Date.today', bookable_type: "Bus", bookable_id: bus.id, user_id: user.id }}
+    expect(response).to have_http_status(:success)
+    expect(assigns(:booking).user).to eq(user)
+  end
+
+  it "render a new booking @booking" do 
+    post :create, params: { booking: { name: 'sunit', age: '21', gender: 'Male', seat_no: '2', date: 'Date.today', bookable_type: "Bus", bookable_id: bus.id, user_id: user.id } }
+    expect(response).to have_http_status(:success)
+    expect(response).to render_template(:new)
+  end
+
+  describe "Booking #delete" do 
+    it "delete booking information @bookings" do 
+      delete :destroy, params: { id: booking.id }
+      expect(response).to redirect_to(bookings_path(assigns(:bookings)))
+      expect(Booking.exists?(booking.id)).to be_falsey
     end
   end
 end
