@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :train do
-    association :booking 
+    association :route 
     caption { Faker::Lorem.sentence }
   end
 end  
